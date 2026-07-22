@@ -5,166 +5,303 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PurCell5G | Dedicated US Mobile Proxies</title>
     <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: #111827;
+            --border-color: #1f2937;
+            --accent-blue: #3b82f6;
+            --accent-green: #10b981;
+            --text-main: #f9fafb;
+            --text-muted: #9ca3af;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #0d1117;
-            color: #c9d1d9;
+            background-color: var(--bg-color);
+            color: var(--text-main);
             margin: 0;
             padding: 40px 20px;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
             min-height: 100vh;
             box-sizing: border-box;
         }
-        .container {
-            background-color: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 16px;
-            padding: 50px;
-            max-width: 850px;
+
+        .wrapper {
             width: 100%;
-            box-shadow: 0 16px 40px rgba(0,0,0,0.7);
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Top Navigation / Brand Bar with Logo */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 15px 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+
+        .brand-logo {
+            height: 38px;
+            width: auto;
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-btn {
+            background-color: var(--border-color);
+            color: var(--text-main);
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .nav-btn:hover {
+            background-color: #374151;
+        }
+
+        /* Main Hero / Dashboard Grid */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
             box-sizing: border-box;
         }
-        .header-section {
-            text-align: center;
-            margin-bottom: 35px;
-        }
+
         h1 {
-            color: #ffffff;
-            font-size: 42px;
+            font-size: 36px;
             margin: 0 0 10px 0;
-            letter-spacing: -0.5px;
-        }
-        .tagline {
-            color: #58a6ff;
-            font-size: 16px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 12px;
-        }
-        .subtext {
-            font-size: 16px;
-            color: #8b949e;
-            margin: 0;
-        }
-        .promo-box {
-            background-color: #1f6feb;
             color: #ffffff;
-            padding: 16px;
-            border-radius: 10px;
+        }
+
+        .tagline {
+            color: var(--accent-blue);
+            font-size: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 20px;
+        }
+
+        .description {
+            font-size: 16px;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .promo-banner {
+            background: linear-gradient(135deg, #1e40af, #3b82f6);
+            color: #ffffff;
+            padding: 16px 20px;
+            border-radius: 8px;
             font-weight: bold;
+            font-size: 17px;
             text-align: center;
             margin-bottom: 30px;
-            font-size: 18px;
             letter-spacing: 0.5px;
         }
-        .content-grid {
+
+        .features-grid {
             display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 25px;
-            margin-bottom: 30px;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
         }
-        .features {
-            background-color: #0d1117;
-            border: 1px solid #30363d;
-            border-radius: 10px;
-            padding: 25px;
-            box-sizing: border-box;
+
+        .feature-item {
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
         }
-        .features p {
-            margin: 14px 0;
+
+        .feature-item h3 {
+            margin: 0 0 8px 0;
             font-size: 15px;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
-        .features p:first-child {
-            margin-top: 0;
+
+        .feature-item p {
+            margin: 0;
+            font-size: 14px;
+            color: var(--text-muted);
         }
-        .features p:last-child {
-            margin-bottom: 0;
-        }
-        .actions-panel {
+
+        /* Sidebar Actions Card */
+        .sidebar-card {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            gap: 15px;
-        }
-        .btn {
-            display: block;
-            background-color: #238636;
-            color: white;
+            gap: 20px;
             text-align: center;
+        }
+
+        .sidebar-card h2 {
+            margin: 0 0 5px 0;
+            font-size: 22px;
+            color: #ffffff;
+        }
+
+        /* Browser ID Flag Widget Style */
+        .browser-flag-box {
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 12px;
+            text-align: left;
+            font-family: monospace;
+            font-size: 12px;
+            color: var(--accent-green);
+            word-break: break-all;
+        }
+
+        .browser-flag-box span {
+            color: var(--text-muted);
+            display: block;
+            margin-bottom: 4px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary {
+            display: block;
+            background-color: var(--accent-green);
+            color: white;
             text-decoration: none;
             padding: 16px;
             border-radius: 8px;
             font-weight: bold;
             font-size: 16px;
-            transition: background-color 0.2s, transform 0.1s;
-            box-sizing: border-box;
+            transition: background 0.2s;
         }
-        .btn:hover {
-            background-color: #2ea043;
-            transform: translateY(-1px);
+
+        .btn-primary:hover {
+            background-color: #059669;
         }
+
         .btn-secondary {
-            background-color: #30363d;
+            display: block;
+            background-color: var(--border-color);
+            color: white;
+            text-decoration: none;
+            padding: 16px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 16px;
+            transition: background 0.2s;
         }
+
         .btn-secondary:hover {
-            background-color: #484f58;
+            background-color: #374151;
         }
+
         .footer {
             text-align: center;
-            margin-top: 30px;
+            margin-top: 40px;
             font-size: 13px;
-            color: #8b949e;
-            border-top: 1px solid #30363d;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-color);
             padding-top: 20px;
         }
 
-        /* Mobile responsiveness: collapses back to a single column cleanly on phones */
-        @media (max-width: 768px) {
-            body {
-                padding: 15px;
-            }
-            .container {
-                padding: 25px;
-            }
-            h1 {
-                font-size: 32px;
-            }
-            .content-grid {
+        /* Mobile Responsive Fallback */
+        @media (max-width: 850px) {
+            .main-grid {
                 grid-template-columns: 1fr;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .navbar {
+                flex-direction: column;
                 gap: 15px;
+                text-align: center;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <div class="header-section">
-            <h1>PurCell5G</h1>
-            <div class="tagline">Dedicated US Mobile Proxies 🇺🇸</div>
-            <p class="subtext">Real phones. Real carriers. Never shared.</p>
+    <div class="wrapper">
+        <div class="navbar">
+            <img src="https://raw.githubusercontent.com/ABThomas870/purcell5g/main/logo.png" alt="PurCell5G Logo" class="brand-logo" onerror="this.style.display='none'; document.getElementById('fallback-brand').style.display='block';">
+            <div id="fallback-brand" style="display:none; font-size:24px; font-weight:800; color:#fff;">PurCell<span style="color:#3b82f6;">5G</span></div>
+            <div class="nav-links">
+                <a href="https://t.me/PurCell5G_Info" class="nav-btn" target="_blank" rel="noopener noreferrer">Channel Info</a>
+                <a href="https://t.me/PurCell5G" class="nav-btn" target="_blank" rel="noopener noreferrer">Support / Order</a>
+            </div>
         </div>
 
-        <div class="promo-box">
-            USE CODE: PURCELL20 = 20% OFF
-        </div>
+        <div class="main-grid">
+            <div class="card">
+                <div class="tagline">Dedicated US Mobile Proxies 🇺🇸</div>
+                <h1>Real Hardware. Real Carriers. Never Shared.</h1>
+                <p class="description">
+                    High-performance dedicated mobile proxy infrastructure built on clean devices and tier-one networks. Zero modem farms, zero synthetic pooling, complete isolation.
+                </p>
 
-        <div class="content-grid">
-            <div class="features">
-                <p>🛡️ <strong>1 Client Per Device</strong> (No shared pools)</p>
-                <p>♾️ <strong>Unlimited Data</strong> (No throttling)</p>
-                <p>🔄 <strong>Fast Rotation:</strong> 5 to 10 sec via API</p>
-                <p>🇺🇸 <strong>Carrier:</strong> T-Mobile / Metro</p>
-                <p>⚡ <strong>Free 1-Hour Trial</strong> available</p>
+                <div class="promo-banner">
+                    ⚡ USE CODE: PURCELL20 = 20% OFF MONTH ONE
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <h3>🛡️ 1 Client Per Device</h3>
+                        <p>Absolute isolation with no shared pools or cross-contamination.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>♾️ Unlimited Data</h3>
+                        <p>Zero throttling or hidden bandwidth caps on your lines.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>🔄 Fast API Rotation</h3>
+                        <p>Lightning-fast IP rotation between 5 to 10 seconds via API.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>🇺🇸 Premium Carrier</h3>
+                        <p>Powered by T-Mobile and Metro infrastructure.</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="actions-panel">
-                <a href="https://t.me/PurCell5G" class="btn" target="_blank" rel="noopener noreferrer">Order Here (@PurCell5G)</a>
-                <a href="https://t.me/PurCell5G_Info" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Official Channel (@PurCell5G_Info)</a>
+            <div class="card sidebar-card">
+                <h2>Get Started</h2>
+                <p style="color: var(--text-muted); margin: 0 0 5px 0; font-size: 14px;">
+                    Free 1-hour trial available. Instant activation.
+                </p>
+
+                <div class="browser-flag-box">
+                    <span>Client ID / Browser Flag</span>
+                    <div id="user-agent-display">Detecting environment...</div>
+                </div>
+
+                <a href="https://t.me/PurCell5G" class="btn-primary" target="_blank" rel="noopener noreferrer">Order Here (@PurCell5G)</a>
+                <a href="https://t.me/PurCell5G_Info" class="btn-secondary" target="_blank" rel="noopener noreferrer">Official Channel</a>
             </div>
         </div>
 
@@ -173,5 +310,13 @@
         </div>
     </div>
 
+    <script>
+        // Simple script to inject client environment ID info into the flag box
+        document.addEventListener("DOMContentLoaded", function() {
+            const ua = navigator.userAgent;
+            const platform = navigator.platform || "Unknown OS";
+            document.getElementById('user-agent-display').innerText = `OS: ${platform} | UA-Sign: ${ua.substring(0, 45)}...`;
+        });
+    </script>
 </body>
 </html>
