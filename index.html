@@ -34,7 +34,7 @@
             margin: 0 auto;
         }
 
-        /* Top Navigation / Brand Bar with Logo */
+        /* Top Navigation / Brand Bar with Pure Code Logo */
         .navbar {
             display: flex;
             justify-content: space-between;
@@ -47,10 +47,54 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.5);
         }
 
-        .brand-logo {
-            height: 38px;
-            width: auto;
-            display: block;
+        .brand-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        /* Pure CSS/SVG Logo Mark */
+        .logo-mark {
+            display: flex;
+            align-items: flex-end;
+            gap: 3px;
+            height: 32px;
+        }
+
+        .logo-bar {
+            width: 5px;
+            background: linear-gradient(to top, #3b82f6, #8b5cf6);
+            border-radius: 2px;
+        }
+
+        .logo-bar:nth-child(1) { height: 12px; }
+        .logo-bar:nth-child(2) { height: 20px; }
+        .logo-bar:nth-child(3) { height: 28px; }
+
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-name {
+            font-size: 22px;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+        }
+
+        .brand-name span {
+            color: var(--accent-blue);
+        }
+
+        .brand-sub {
+            font-size: 9px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 600;
         }
 
         .nav-links {
@@ -249,8 +293,17 @@
 
     <div class="wrapper">
         <div class="navbar">
-            <img src="https://raw.githubusercontent.com/ABThomas870/purcell5g/main/logo.png" alt="PurCell5G Logo" class="brand-logo" onerror="this.style.display='none'; document.getElementById('fallback-brand').style.display='block';">
-            <div id="fallback-brand" style="display:none; font-size:24px; font-weight:800; color:#fff;">PurCell<span style="color:#3b82f6;">5G</span></div>
+            <div class="brand-container">
+                <div class="logo-mark">
+                    <div class="logo-bar"></div>
+                    <div class="logo-bar"></div>
+                    <div class="logo-bar"></div>
+                </div>
+                <div class="brand-text">
+                    <div class="brand-name">PurCell<span>5G</span></div>
+                    <div class="brand-sub">US Mobile Proxies</div>
+                </div>
+            </div>
             <div class="nav-links">
                 <a href="https://t.me/PurCell5G_Info" class="nav-btn" target="_blank" rel="noopener noreferrer">Channel Info</a>
                 <a href="https://t.me/PurCell5G" class="nav-btn" target="_blank" rel="noopener noreferrer">Support / Order</a>
@@ -311,7 +364,7 @@
     </div>
 
     <script>
-        // Simple script to inject client environment ID info into the flag box
+        // Live client environment ID info injector
         document.addEventListener("DOMContentLoaded", function() {
             const ua = navigator.userAgent;
             const platform = navigator.platform || "Unknown OS";
