@@ -10,7 +10,7 @@
             background-color: #0d1117;
             color: #c9d1d9;
             margin: 0;
-            padding: 20px;
+            padding: 40px 20px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -20,62 +20,92 @@
         .container {
             background-color: #161b22;
             border: 1px solid #30363d;
-            border-radius: 12px;
-            padding: 40px;
-            max-width: 580px;
+            border-radius: 16px;
+            padding: 50px;
+            max-width: 850px;
             width: 100%;
-            box-shadow: 0 12px 32px rgba(0,0,0,0.6);
-            text-align: center;
+            box-shadow: 0 16px 40px rgba(0,0,0,0.7);
             box-sizing: border-box;
+        }
+        .header-section {
+            text-align: center;
+            margin-bottom: 35px;
         }
         h1 {
             color: #ffffff;
-            font-size: 32px;
-            margin-bottom: 5px;
+            font-size: 42px;
+            margin: 0 0 10px 0;
+            letter-spacing: -0.5px;
         }
         .tagline {
             color: #58a6ff;
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 600;
-            margin-bottom: 20px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+        .subtext {
+            font-size: 16px;
+            color: #8b949e;
+            margin: 0;
         }
         .promo-box {
             background-color: #1f6feb;
             color: #ffffff;
-            padding: 14px;
-            border-radius: 8px;
+            padding: 16px;
+            border-radius: 10px;
             font-weight: bold;
-            margin-bottom: 20px;
-            font-size: 16px;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 18px;
+            letter-spacing: 0.5px;
+        }
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 25px;
+            margin-bottom: 30px;
         }
         .features {
-            text-align: left;
             background-color: #0d1117;
             border: 1px solid #30363d;
-            border-radius: 8px;
-            padding: 18px 24px;
-            margin-bottom: 25px;
+            border-radius: 10px;
+            padding: 25px;
+            box-sizing: border-box;
         }
         .features p {
-            margin: 12px 0;
+            margin: 14px 0;
             font-size: 15px;
+        }
+        .features p:first-child {
+            margin-top: 0;
+        }
+        .features p:last-child {
+            margin-bottom: 0;
+        }
+        .actions-panel {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 15px;
         }
         .btn {
             display: block;
             background-color: #238636;
             color: white;
+            text-align: center;
             text-decoration: none;
-            padding: 14px;
-            border-radius: 6px;
+            padding: 16px;
+            border-radius: 8px;
             font-weight: bold;
-            font-size: 15px;
-            margin-bottom: 12px;
-            transition: background-color 0.2s;
+            font-size: 16px;
+            transition: background-color 0.2s, transform 0.1s;
+            box-sizing: border-box;
         }
         .btn:hover {
             background-color: #2ea043;
+            transform: translateY(-1px);
         }
         .btn-secondary {
             background-color: #30363d;
@@ -84,36 +114,59 @@
             background-color: #484f58;
         }
         .footer {
-            margin-top: 25px;
+            text-align: center;
+            margin-top: 30px;
             font-size: 13px;
             color: #8b949e;
+            border-top: 1px solid #30363d;
+            padding-top: 20px;
+        }
+
+        /* Mobile responsiveness: collapses back to a single column cleanly on phones */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+            .container {
+                padding: 25px;
+            }
+            h1 {
+                font-size: 32px;
+            }
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h1>PurCell5G</h1>
-        <div class="tagline">Dedicated US Mobile Proxies 🇺🇸</div>
-        
-        <p style="font-size: 15px; color: #8b949e; margin-bottom: 20px;">
-            Real phones. Real carriers. Never shared.
-        </p>
+        <div class="header-section">
+            <h1>PurCell5G</h1>
+            <div class="tagline">Dedicated US Mobile Proxies 🇺🇸</div>
+            <p class="subtext">Real phones. Real carriers. Never shared.</p>
+        </div>
 
         <div class="promo-box">
             USE CODE: PURCELL20 = 20% OFF
         </div>
 
-        <div class="features">
-            <p>🛡️ <strong>1 Client Per Device</strong> (No shared pools)</p>
-            <p>♾️ <strong>Unlimited Data</strong> (No throttling)</p>
-            <p>🔄 <strong>Fast Rotation:</strong> 5 to 10 sec via API</p>
-            <p>🇺🇸 <strong>Carrier:</strong> T-Mobile / Metro</p>
-            <p>⚡ <strong>Free 1-Hour Trial</strong> available</p>
-        </div>
+        <div class="content-grid">
+            <div class="features">
+                <p>🛡️ <strong>1 Client Per Device</strong> (No shared pools)</p>
+                <p>♾️ <strong>Unlimited Data</strong> (No throttling)</p>
+                <p>🔄 <strong>Fast Rotation:</strong> 5 to 10 sec via API</p>
+                <p>🇺🇸 <strong>Carrier:</strong> T-Mobile / Metro</p>
+                <p>⚡ <strong>Free 1-Hour Trial</strong> available</p>
+            </div>
 
-        <a href="https://t.me/PurCell5G" class="btn" target="_blank" rel="noopener noreferrer">Order Here (@PurCell5G)</a>
-        <a href="https://t.me/PurCell5G_Info" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Official Channel (@PurCell5G_Info)</a>
+            <div class="actions-panel">
+                <a href="https://t.me/PurCell5G" class="btn" target="_blank" rel="noopener noreferrer">Order Here (@PurCell5G)</a>
+                <a href="https://t.me/PurCell5G_Info" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Official Channel (@PurCell5G_Info)</a>
+            </div>
+        </div>
 
         <div class="footer">
             &copy; 2026 PurCell5G. All rights reserved.
